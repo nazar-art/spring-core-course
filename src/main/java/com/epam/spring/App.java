@@ -26,6 +26,7 @@ public class App {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
         App app = context.getBean(App.class);
         app.logEvent("Some event for user 1");
+        app.logEvent("Some event for user 2");
 
     }
 }
