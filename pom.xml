@@ -4,8 +4,8 @@
          http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.epam.spring</groupId>
-    <artifactId>com.epam.spring.core</artifactId>
+    <groupId>ua.com.epam.spring</groupId>
+    <artifactId>ua.com.epam.spring.core</artifactId>
     <packaging>jar</packaging>
 
     <name>com.epam.spring.core</name>

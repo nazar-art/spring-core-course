@@ -1,5 +1,6 @@
-package com.epam.spring;
+package ua.epam.spring.core.logger;
 
+import ua.epam.spring.core.beans.Event;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -16,9 +17,9 @@ public class FileEventLogger implements EventLogger {
 
     public void init() throws IllegalAccessException {
         this.file = new File(fileName);
-        if (!file.canWrite()) {
+        /*if (!file.canWrite()) {
             throw new IllegalAccessException("You do not have access write to file!");
-        }
+        }*/
     }
 
     @Override

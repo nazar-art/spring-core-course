@@ -1,4 +1,4 @@
-package com.epam.spring;
+package ua.epam.spring.core.beans;
 
 import java.text.DateFormat;
 import java.util.Date;

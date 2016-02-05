@@ -1,4 +1,6 @@
-package com.epam.spring;
+package ua.epam.spring.core.logger;
+
+import ua.epam.spring.core.beans.Event;
 
 public class ConsoleEventLogger implements EventLogger {
     @Override
