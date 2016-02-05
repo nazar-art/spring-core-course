@@ -1,6 +1,6 @@
 package com.epam.spring;
 
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
@@ -13,9 +13,10 @@ public class App {
         this.eventLogger = eventLogger;
     }
 
-    private void logEvent(String msg) {
-        String message = msg.replaceAll(client.getId(), client.getFullName());
-        eventLogger.logEvent(message);
+    private void logEvent(Event event) {
+        String message = event.getMessage().replaceAll(client.getId(), client.getFullName());
+        event.setMessage(message);
+        eventLogger.logEvent(event);
     }
 
     public static void main(String[] args) {
@@ -23,10 +24,12 @@ public class App {
 //        app.client = new Client("1", "John Smith");
 //        app.eventLogger = new ConsoleEventLogger();
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
         App app = context.getBean(App.class);
-        app.logEvent("Some event for user 1");
-        app.logEvent("Some event for user 2");
+        Event event = context.getBean(Event.class);
+        event.setMessage("Some event for user 1");
+        app.logEvent(event);
 
+        context.close();
     }
 }
