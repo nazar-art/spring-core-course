@@ -5,6 +5,7 @@
  		http://www.springframework.org/schema/beans
  		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
+    <import resource="loggers.xml"/>
 
     <bean id="client" class="com.epam.spring.Client">
         <constructor-arg index="0" value="1"/>
@@ -16,24 +17,4 @@
         <constructor-arg ref="eventLogger"/>
     </bean>
 
-    <bean id="event" class="com.epam.spring.Event" scope="prototype">
-        <constructor-arg>
-            <bean class="java.util.Date"/>
-        </constructor-arg>
-        <constructor-arg ref="dateFormat"/>
-    </bean>
-
-    <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
-
-    <bean id="eventLogger" class="com.epam.spring.ConsoleEventLogger"/>
-
-    <!--<bean id="fileLogger" class="com.epam.spring.FileEventLogger" init-method="init">
-        <property name="fileName" value="bean_file.txt"/>
-        &lt;!&ndash;<constructor-arg value="bean_file"/>&ndash;&gt;
-    </bean>-->
-
-    <bean id="cacheLogger" class="com.epam.spring.CacheFileEventLogger" destroy-method="destroy">
-        <constructor-arg value="cacheFile.txt"/>
-        <constructor-arg value="5"/>
-    </bean>
 </beans>
