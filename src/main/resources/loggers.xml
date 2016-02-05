@@ -33,8 +33,8 @@
         <constructor-arg>
             <list>
                 <ref bean="consoleEventLogger"/>
-                <!--<ref bean="fileEventLogger"/>-->
-                <!--<ref bean="cacheFileEventLogger"/>-->
+                <ref bean="fileEventLogger"/>
+                <ref bean="cachedFileEventLogger"/>
             </list>
         </constructor-arg>
     </bean>
