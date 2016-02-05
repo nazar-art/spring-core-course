@@ -26,6 +26,14 @@
     <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
 
     <bean id="eventLogger" class="com.epam.spring.ConsoleEventLogger"/>
-    <!--<bean id="fileLogger" class="com.epam.spring.FileEventLogger" init-method="init"/>-->
-    <!--<bean id="cacheLogger" class="com.epam.spring.CacheFileEventLogger" destroy-method="destroy"/>-->
+
+    <!--<bean id="fileLogger" class="com.epam.spring.FileEventLogger" init-method="init">
+        <property name="fileName" value="bean_file.txt"/>
+        &lt;!&ndash;<constructor-arg value="bean_file"/>&ndash;&gt;
+    </bean>-->
+
+    <bean id="cacheLogger" class="com.epam.spring.CacheFileEventLogger" destroy-method="destroy">
+        <constructor-arg value="cacheFile.txt"/>
+        <constructor-arg value="5"/>
+    </bean>
 </beans>
