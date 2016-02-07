@@ -1,6 +1,7 @@
 package ua.epam.spring.core.beans;
 
 import java.text.DateFormat;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.Random;
 
@@ -14,6 +15,24 @@ public class Event {
         id = new Random().nextInt(1000);
         this.date = date;
         this.df = df;
+    }
+
+    public static boolean isDay() {
+        boolean result = false;
+
+        LocalTime rightNow = LocalTime.now();
+        LocalTime dayStart = LocalTime.of(22, 30);
+        LocalTime dayEnd = LocalTime.of(22, 30);
+
+        if (rightNow.isAfter(dayStart) && rightNow.isBefore(dayEnd)) {
+            result = true;
+        }
+        return result;
+        /* #{ T(Event).isDay() ? filterEventLogger
+                               : consoleEventLogger }
+
+           #{ client.greeting ?: 'Hello' }
+                               */
     }
 
     public int getId() {

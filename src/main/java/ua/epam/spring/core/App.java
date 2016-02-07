@@ -25,12 +25,6 @@ public class App {
         this.loggers = loggers;
     }
 
-    /*private void logEvent(Event event) {
-        String message = event.getMessage().replaceAll(client.getId(), client.getFullName());
-        event.setMessage(message);
-        eventLogger.logEvent(event);
-    }*/
-
     private void logEvent(EventType type, Event event) {
         EventLogger logger = loggers.get(type);
         if (logger == null) {
@@ -57,6 +51,7 @@ public class App {
         event.setMessage("Some event for user 1");
 
         app.logEvent(EventType.INFO, event);
+        app.logEvent(EventType.ERROR, event);
 
         context.close();
     }
