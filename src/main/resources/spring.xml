@@ -54,4 +54,9 @@
     <!--<bean id="monitor" class="ua.epam.spring.core.util.Monitor"/>-->
     <!--<bean id="awared" class="ua.epam.spring.core.util.AwareBean" init-method="init"/>-->
 
+    <util:list id="eventList">
+        <ref bean="event"/>
+        <ref bean="event"/>
+    </util:list>
+
 </beans>

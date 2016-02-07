@@ -36,7 +36,13 @@ public class App {
         if (logger == null) {
             logger = defaultLogger;
         }
+        processEvent(event);
         logger.logEvent(event);
+    }
+
+    private void processEvent(Event event) {
+        String message = event.getMessage().replaceAll(client.getId(), client.getFullName());
+        event.setMessage(message);
     }
 
     public static void main(String[] args) {
@@ -45,9 +51,11 @@ public class App {
 //        app.eventLogger = new ConsoleEventLogger();
 
         ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+
         App app = context.getBean(App.class);
         Event event = context.getBean(Event.class);
         event.setMessage("Some event for user 1");
+
         app.logEvent(EventType.INFO, event);
 
         context.close();

@@ -25,6 +25,7 @@ public class CacheFileEventLogger extends FileEventLogger {
 
     private void writeEventsFromCache() {
         // todo
+        System.out.println("Writing to file... ");
     }
 
     public void destroy() {
