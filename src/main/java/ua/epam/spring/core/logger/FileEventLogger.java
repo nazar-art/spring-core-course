@@ -17,6 +17,7 @@ public class FileEventLogger implements EventLogger {
 
     public void init() throws IllegalAccessException {
         this.file = new File(fileName);
+        // comment because it fails now
         /*if (!file.canWrite()) {
             throw new IllegalAccessException("You do not have access write to file!");
         }*/

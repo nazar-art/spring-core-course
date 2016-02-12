@@ -25,18 +25,18 @@ public class App {
         this.loggers = loggers;
     }
 
-    /*private void logEvent(Event event) {
-        String message = event.getMessage().replaceAll(client.getId(), client.getFullName());
-        event.setMessage(message);
-        eventLogger.logEvent(event);
-    }*/
-
     private void logEvent(EventType type, Event event) {
         EventLogger logger = loggers.get(type);
         if (logger == null) {
             logger = defaultLogger;
         }
+        processEvent(event);
         logger.logEvent(event);
+    }
+
+    private void processEvent(Event event) {
+        String message = event.getMessage().replaceAll(client.getId(), client.getFullName());
+        event.setMessage(message);
     }
 
     public static void main(String[] args) {
@@ -45,10 +45,13 @@ public class App {
 //        app.eventLogger = new ConsoleEventLogger();
 
         ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+
         App app = context.getBean(App.class);
         Event event = context.getBean(Event.class);
         event.setMessage("Some event for user 1");
+
         app.logEvent(EventType.INFO, event);
+        app.logEvent(EventType.ERROR, event);
 
         context.close();
     }
