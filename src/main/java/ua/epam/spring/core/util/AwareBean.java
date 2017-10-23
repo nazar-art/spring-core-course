@@ -15,8 +15,8 @@ public class AwareBean implements ApplicationContextAware {
 
     public void init() {
         System.out.println("Aware init method ...");
-        System.out.println(context.getApplicationName());
-        System.out.println(context.getDisplayName());
-        System.out.println(context.getId());
+        System.out.println("Application name: " + context.getApplicationName());
+        System.out.println("Context name: " + context.getDisplayName());
+        System.out.println("Context id: " + context.getId());
     }
 }

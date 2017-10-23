@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class FileEventLogger implements EventLogger {
 
-    private String fileName;
+    protected String fileName;
     private File file;
 
     public FileEventLogger(String fileName) {

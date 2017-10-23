@@ -8,7 +8,7 @@
     <bean id="consoleEventLogger" class="ua.epam.spring.core.logger.ConsoleEventLogger"/>
 
     <bean id="fileEventLogger" class="ua.epam.spring.core.logger.FileEventLogger" init-method="init">
-        <constructor-arg value="log.txt"/>
+        <constructor-arg value="app_logger.log"/>
     </bean>
 
     <bean id="cachedFileEventLogger" class="ua.epam.spring.core.logger.CacheFileEventLogger"

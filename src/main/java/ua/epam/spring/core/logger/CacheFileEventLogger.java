@@ -1,7 +1,11 @@
 package ua.epam.spring.core.logger;
 
+import lombok.SneakyThrows;
+import org.apache.commons.io.FileUtils;
 import ua.epam.spring.core.beans.Event;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,8 +29,13 @@ public class CacheFileEventLogger extends FileEventLogger {
         }
     }
 
+    @SneakyThrows
     private void writeEventsFromCache() {
-        // todo
+        if (cache.size() > 0) {
+            for (Event event : cache) {
+                FileUtils.writeStringToFile(new File(fileName), event.getMessage());
+            }
+        }
         System.out.println("Writing to file... ");
     }
 
