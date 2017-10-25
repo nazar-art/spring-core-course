@@ -21,8 +21,8 @@ public class Event {
         boolean result = false;
 
         LocalTime rightNow = LocalTime.now();
-        LocalTime dayStart = LocalTime.of(22, 30);
-        LocalTime dayEnd = LocalTime.of(22, 30);
+        LocalTime dayStart = LocalTime.of(8, 0);
+        LocalTime dayEnd = LocalTime.of(17, 0);
 
         if (rightNow.isAfter(dayStart) && rightNow.isBefore(dayEnd)) {
             result = true;
@@ -33,6 +33,10 @@ public class Event {
 
            #{ client.greeting ?: 'Hello' }
                                */
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isDay());
     }
 
     public int getId() {

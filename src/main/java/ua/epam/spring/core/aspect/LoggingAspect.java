@@ -2,14 +2,20 @@ package ua.epam.spring.core.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 
-@Aspect
-@Component
+//@Aspect
+//@EnableAspectJAutoProxy
+//@Component
 public class LoggingAspect {
 
-    @Pointcut("execution(* *.logEvent(..) )")
+    @Pointcut("execution(* *.logEvent(..))")
     private void allLogEventMethods() {
+    }
+
+    @Pointcut("allLogEventMethods() && within(*.*File*Logger)")
+    private void logEventInsideFileLogger() {
     }
 
     @Before("allLogEventMethods()")
@@ -19,7 +25,7 @@ public class LoggingAspect {
                 + joinPoint.getSignature().getName());
     }
 
-    @AfterReturning(pointcut = "allLogEventMethods()", returning = "retVal")
+    /*@AfterReturning(pointcut = "allLogEventMethods()", returning = "retVal")
     public void logAfter(Object retVal) {
         System.out.println("Returned value: " + retVal);
     }
@@ -27,5 +33,5 @@ public class LoggingAspect {
     @AfterThrowing(pointcut = "allLogEventMethods()", throwing = "ex")
     public void logAfterThrowing(Throwable ex) {
         System.out.println("Thrown: " + ex);
-    }
+    }*/
 }

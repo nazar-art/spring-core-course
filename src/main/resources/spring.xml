@@ -11,6 +11,8 @@
  		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
     <import resource="loggers.xml"/>
+    <import resource="spring_annotation_context.xml"/>
+    <!--<import resource="aspect.xml"/>-->
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
@@ -32,7 +34,8 @@
     </bean>
 
     <util:map id="loggerMap">
-        <entry key="INFO" value-ref="consoleEventLogger"/>
+        <!--<entry key="INFO" value="#{T(ua.epam.spring.core.beans.Event).isDay() ? consoleEventLogger : fileEventLogger }"/>-->
+        <entry key="INFO" value-ref="fileEventLogger"/>
         <entry key="ERROR" value-ref="combinedEventLogger"/>
     </util:map>
 

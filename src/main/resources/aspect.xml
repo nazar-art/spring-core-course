@@ -9,7 +9,6 @@
  		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 
     <beans>
-
         <aop:aspectj-autoproxy/>
 
         <aop:config>
@@ -20,10 +19,8 @@
 
                 <aop:before pointcut-ref="consoleLogging" method="logBefore"/>
             </aop:aspect>
-
         </aop:config>
 
-        <bean id="aBean" class="..."/>
-
+        <bean id="aBean" class="ua.epam.spring.core.aspect.LoggingAspect"/>
     </beans>
 </beans>
