@@ -1,4 +1,4 @@
-package ua.epam.spring.core.util;
+package net.lelyak.spring.core.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

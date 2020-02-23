@@ -4,11 +4,12 @@
          http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>ua.com.epam.spring</groupId>
+    <groupId>spring-core-course</groupId>
     <artifactId>spring-core</artifactId>
     <packaging>jar</packaging>
 
-    <name>com.epam.spring.core</name>
+    <name>spring-core-course</name>
+    <description>Spring Core Course</description>
     <url>http://maven.apache.org</url>
     <version>0.0.1</version>
 

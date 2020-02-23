@@ -1,7 +1,6 @@
-package ua.epam.spring.core.aspect;
+package net.lelyak.spring.core.aspect;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;

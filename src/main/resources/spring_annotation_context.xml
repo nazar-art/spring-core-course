@@ -10,7 +10,7 @@
 
     <beans>
         <context:annotation-config/>
-        <context:component-scan base-package="ua.epam.spring.core.aspect"/>
+        <context:component-scan base-package="net.lelyak.spring.core.aspect"/>
     </beans>
 
 </beans>

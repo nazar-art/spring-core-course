@@ -1,4 +1,4 @@
-package ua.epam.spring.core.beans;
+package net.lelyak.spring.core.beans;
 
 import java.text.DateFormat;
 import java.time.LocalTime;

@@ -1,11 +1,10 @@
-package ua.epam.spring.core.logger;
+package net.lelyak.spring.core.logger;
 
 import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;
-import ua.epam.spring.core.beans.Event;
+import net.lelyak.spring.core.beans.Event;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 

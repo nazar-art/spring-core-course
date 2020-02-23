@@ -21,6 +21,6 @@
             </aop:aspect>
         </aop:config>
 
-        <bean id="aBean" class="ua.epam.spring.core.aspect.LoggingAspect"/>
+        <bean id="aBean" class="net.lelyak.spring.core.aspect.LoggingAspect"/>
     </beans>
 </beans>

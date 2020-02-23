@@ -1,6 +1,6 @@
-package ua.epam.spring.core.logger;
+package net.lelyak.spring.core.logger;
 
-import ua.epam.spring.core.beans.Event;
+import net.lelyak.spring.core.beans.Event;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
