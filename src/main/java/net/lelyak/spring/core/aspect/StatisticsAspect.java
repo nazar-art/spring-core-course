@@ -7,12 +7,15 @@ import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.LongAdder;
 
 @Aspect
 @EnableAspectJAutoProxy
 @Component
 public class StatisticsAspect {
-    private Map<Class<?>, Integer> counter = new HashMap<>();
+    //private final Map<Class<?>, Integer> counter = new HashMap<>();
+    private final Map<Class<?>, LongAdder> counterMap = new ConcurrentHashMap<>();
 
     @Pointcut("execution(* *.logEvent(..) )")
     private void allLogEventMethods() {
@@ -38,10 +41,14 @@ public class StatisticsAspect {
     @AfterReturning("allLogEventMethods()")
     public void count(JoinPoint jp) {
         Class<?> aClass = jp.getTarget().getClass();
-        if (!counter.containsKey(aClass)) {
+
+        /*if (!counter.containsKey(aClass)) {
             counter.put(aClass, 0);
         }
         counter.put(aClass, counter.get(aClass) + 1);
-        System.out.println("Updating counter: " + counter.get(aClass));
+        System.out.println("Updating counter: " + counter.get(aClass));*/
+
+        counterMap.computeIfAbsent(aClass, v -> new LongAdder()).increment();
+        System.out.println("Updating counter with LongAdder: " + counterMap.get(aClass));
     }
 }
